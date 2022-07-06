@@ -63,7 +63,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        if($post){
+            return view('admin.posts.edit', compact('post'));
+        };
+        abort(404);
+
     }
 
     /**
@@ -73,9 +78,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $new_post = $request->all();
+
+        $post->slug = Post::generateSlug($new_post['title']);
+
+        $post->update($new_post);
+
+        return redirect()->route('admin.post.show', $post);
+
     }
 
     /**

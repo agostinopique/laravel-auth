@@ -10,7 +10,7 @@
                 <h5 class="card-title">{{ $post->title }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ $post->description }}</h6>
                 <a href="{{ route('admin.post.show', $post) }}" class="card-link">Show</a>
-                <a href="#" class="card-link">Edit</a>
+                <a href="{{ route('admin.post.edit', $post) }}" class="card-link">Edit</a>
                 <a href="#" class="card-link">Delete</a>
             </div>
         </div>
