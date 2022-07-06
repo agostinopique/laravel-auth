@@ -6,8 +6,9 @@
         <p class="alert alert-danger">{{session('deleted')}}</p>
     @endif
 </div>
-<div class="container d-flex flex-wrap justify-content-center">
+<div class="container">
 
+    <div class="d-flex flex-wrap justify-content-center">
 
         @foreach($posts as $post)
 
@@ -25,7 +26,11 @@
             </div>
         </div>
 
-        @endforeach
 
+
+        @endforeach
+    </div>
+    {{ $posts->links() }}
 </div>
+
 @endsection

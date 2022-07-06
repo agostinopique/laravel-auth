@@ -49377,6 +49377,11 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$().ready(function () {
+  $('#form').submit(function (event) {
+    console.log($('#form').val().length);
+  });
+});
 
 /***/ }),
 

@@ -30,3 +30,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+
+$().ready(function(){
+    $('#form').submit(function(event){
+        console.log($('#form').val().length);
+    })
+});
