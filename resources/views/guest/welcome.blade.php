@@ -68,7 +68,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ route('admin.index') }}">Admin</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -83,8 +83,6 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
-
             </div>
         </div>
     </body>
