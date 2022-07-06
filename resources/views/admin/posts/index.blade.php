@@ -9,9 +9,13 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $post->title }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ $post->description }}</h6>
-                <a href="{{ route('admin.post.show', $post) }}" class="card-link">Show</a>
-                <a href="{{ route('admin.post.edit', $post) }}" class="card-link">Edit</a>
-                <a href="#" class="card-link">Delete</a>
+                <a href="{{ route('admin.post.show', $post) }}" class="card-link btn btn-success">Show</a>
+                <a href="{{ route('admin.post.edit', $post) }}" class="card-link btn btn-primary">Edit</a>
+                <form action="{{ route('admin.post.destroy', $post) }}" method="POST" class="d-inline card-link">
+                    @csrf
+                    @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
             </div>
         </div>
 
