@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -36,9 +36,14 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        $new_post = $request->all();
+        $post = new Post();
+        $post->fill($new_post);
+        $post->slug = Post::generateSlug($new_post['title']);
+        $post->save();
+        return redirect()->route('admin.post.index');
     }
 
     /**
@@ -100,6 +105,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('admin.post.index');
+        return redirect()->route('admin.post.index')->with('deleted', 'Post eliminato con successo!');
     }
 }

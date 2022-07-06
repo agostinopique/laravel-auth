@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    @if (session('deleted'))
+        <p class="alert alert-danger">{{session('deleted')}}</p>
+    @endif
+</div>
 <div class="container d-flex flex-wrap justify-content-center">
+
 
         @foreach($posts as $post)
 
